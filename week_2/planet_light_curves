@@ -22,21 +22,10 @@
     "colab": {
       "name": "Copie de beginner_tess_exomast.ipynb",
       "provenance": [],
-      "collapsed_sections": [],
-      "include_colab_link": true
+      "collapsed_sections": []
     }
   },
   "cells": [
-    {
-      "cell_type": "markdown",
-      "metadata": {
-        "id": "view-in-github",
-        "colab_type": "text"
-      },
-      "source": [
-        "<a href=\"https://colab.research.google.com/github/Hollyqui/BigDataParticlePhysics/blob/master/week_2/planet_light_curves\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
-      ]
-    },
     {
       "cell_type": "code",
       "metadata": {
@@ -176,7 +165,9 @@
         "colab_type": "text"
       },
       "source": [
-        "# MAIN"
+        "# MAIN\n",
+        "\n",
+        "What is done here is to look at a planet based on it's name and then plot the light curves of the star it orbits to see if we can see a decrease in light intensity as it passes between us and the star."
       ]
     },
     {
@@ -198,19 +189,6 @@
         "# now let's run it for two new planets\n",
         "main(\"WASP-101 b\")\n",
         "main(\"WASP-20 b\")"
-      ],
-      "execution_count": 0,
-      "outputs": []
-    },
-    {
-      "cell_type": "code",
-      "metadata": {
-        "id": "IxVQccJFxwKT",
-        "colab_type": "code",
-        "colab": {}
-      },
-      "source": [
-        ""
       ],
       "execution_count": 0,
       "outputs": []
