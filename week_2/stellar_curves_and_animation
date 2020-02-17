@@ -287,7 +287,9 @@
         "colab_type": "text"
       },
       "source": [
-        "#MAIN"
+        "#MAIN\n",
+        "\n",
+        "What we are doing here is to take the TIC ID of a celestial body, find it's coordinates, look at how it's emitted light changes (e.g. if a planet passes by or if it pulsates) and plot the corresponding light curves. Then an animation is created that shows how the area looks like as recorded by the telescope (note colour here corresponds to light intensity). Based on that we can investigate various celestial bodies and see if we can find irregularities in their light emission (and if we do find what caused them)."
       ]
     },
     {
