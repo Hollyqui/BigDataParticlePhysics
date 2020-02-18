@@ -18,20 +18,31 @@ t = 100
 psi = 100
 x = f/f_0
 nu = m_one*m_two/M**2
-params = [psi, t, M, nu]
 alpha = []
 alpha.append(1)
 alpha.append(0)
 
-''' Calculates h(f)'''
-def get_h_f(f, params):
+# modify the variables in params to whichever ones you want to be taken into
+# account for the fishermatrix (from the waveform) If a parameter is taken out
+# the first line of the wavefunction has to be adjusted to not unpack that
+# nonexistent parameter
+params = [psi, t, M, nu]
+
+# change this function to adjust the wavefunction to be something different
+def phi_f(f, params):
     psi, t, M, nu = params
     v = (np.pi*M*f)**(-1/3)
     sum_k = 0
     for k in range(len(alpha)):
         sum_k += alpha[k]*v**2
-    phi_f = 2*np.pi*f*t-psi-np.pi/4+3/(128*nu*v**5)*sum_k
-    h_f = A*f**(-7/6)*np.exp(1j * phi_f)
+    return 2*np.pi*f*t-psi-np.pi/4+3/(128*nu*v**5)*sum_k
+
+###################### CODE #######################
+
+''' Calculates h(f)'''
+def get_h_f(f, params):
+    phi = phi_f(f,params)
+    h_f = A*f**(-7/6)*np.exp(1j * phi)
     return h_f
 
 ''' Calculates S(h)'''
