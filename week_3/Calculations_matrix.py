@@ -1,7 +1,14 @@
+################## IMPORTS ####################################
 import numpy as np
+################# DECLARE GLOBAL VARIABLES ###################
 f = 500
-m_one = 10
-m_two = 10
+G = 6.67*10**(-11)
+c = 3*10**8
+# convert 10**30 kg to natural numbers
+m_one = 10**30/(c**2/G)
+print(m_one)
+m_two = 10**30/(c**2/G)
+# convert 356 ly to natural numbers
 A = 356*24*60*60
 M = m_one+m_two
 S_O = 6*10**(-49)
@@ -16,6 +23,7 @@ alpha = []
 alpha.append(1)
 alpha.append(0)
 
+''' Calculates h(f)'''
 def get_h_f(f, params):
     psi, t, M, nu = params
     v = (np.pi*M*f)**(-1/3)
@@ -24,12 +32,13 @@ def get_h_f(f, params):
         sum_k += alpha[k]*v**2
     phi_f = 2*np.pi*f*t-psi-np.pi/4+3/(128*nu*v**5)*sum_k
     h_f = A*f**(-7/6)*np.exp(1j * phi_f)
-    # print(h_f)
     return h_f
 
+''' Calculates S(h)'''
 def s_h(x):
     return (4.49*x)**-56+(0.16*x)**(-4.52)+0.52+0.32*x**2
 
+''' Finds derivative h'(f)'''
 def get_h_f_derivative(i):
     delta_x = params[i]/10
     new_params =  params.copy()
@@ -39,6 +48,7 @@ def get_h_f_derivative(i):
 low = 1
 high = 10
 
+''' Creates matrix using previous functions'''
 def create_fisher_matrix(increment):
     fisher_matrix = []
     for i in range(len(params)):
