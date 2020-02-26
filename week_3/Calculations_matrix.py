@@ -1,3 +1,5 @@
+# IMPORTANT: Everyone is free to use any of this code, just keep in mind to also include Szymon when you reference it:)
+
 ################### IMPORTS ####################################
 import numpy as np
 import matplotlib.pyplot as plt
